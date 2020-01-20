@@ -1,32 +1,40 @@
 ﻿@page "/quiz"
 
-<h3>Quiz Page</h3>
-
 <input type="hidden" value="@quizNumber" />
 <input type="hidden" value="@Quiz1Anwser" />
 <input type="hidden" value="@Quiz2Anwser" />
 <input type="hidden" value="@Quiz3Anwser" />
 
-<h1>@question</h1>
+<h1 class="page-title">@question</h1>
 
 @if (quizNumber < 3)
 {
-    <button class="btn btn-primary" @onclick="@(e => QuizAnwser(quizNumber, anwser1))">
-        @anwser1
-    </button>
-    <button class="btn btn-primary" @onclick="@(e => QuizAnwser(quizNumber, anwser2))">
-        @anwser2
-    </button>
+    <section class="quiz-anwser-container">
+        <button class="button button-quiz" @onclick="@(e => QuizAnwser(quizNumber, anwser1))">
+            @anwser1
+        </button>
+        <button class="button button-quiz" @onclick="@(e => QuizAnwser(quizNumber, anwser2))">
+            @anwser2
+        </button>
+    </section>
 }
 else
 {
     <p>@Quiz1Anwser</p>
     <p>@Quiz2Anwser</p>
     <p>@Quiz3Anwser</p>
-    <a class="btn btn-primary" href="certificate">View Certifications</a>
+    <nav class="page-actions">
+        <a class="button" style="color:white;" @onclick="Back">Back</a>
+        <a class="button" href="certificate">View Certifications</a>
+    </nav>
 }
 
-<buton class="btn btn-primary" @onclick="Back">Back</buton>
+@if (quizNumber > 0 && quizNumber < 3)
+{
+    <br />
+    <br />
+    <a class="button" style="color:white;" @onclick="Back">Back</a>
+}
 
 @code {
     private int quizNumber = 0;

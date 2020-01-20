@@ -1,58 +1,135 @@
 ﻿@page "/certificate"
 
-<h1 class="page-title">Requirements for [cert. name]</h1>
 
-<p>Listed below are the complete requirements you need to obtain your chosen certificate: <b>[cert. name]</b></p>
+@if (selectedCertificate)
+{
+    <h1 class="page-title">Requirements for @CertificateName</h1>
 
-<section class="sub-section cdn">
-    <h3>Candidate Document Number (CDN)</h3>
+    <p>Listed below are the complete requirements you need to obtain your chosen certificate: <b>@CertificateName</b></p>
+
+    <section class="sub-section cdn">
+        <section class="icon">
+            <img src="human.png" />
+        </section>
+        <section class="content">
+            <h3>Candidate Document Number (CDN)</h3>
+            <p>
+                All seafarer certifications require a CDN.
+                <a href="#">How to obtain CDN</a>
+            </p>
+        </section>
+    </section>
+
+    <section class="sub-section education_and_training">
+        <section class="icon">
+            <img src="exam.png" />
+        </section>
+        <section class="content">
+            <h3>Education and Training</h3>
+            <ul>
+                <li>[text] <a href="#">How to obtain</a></li>
+                <li>[text] <a href="#">How to obtain</a></li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="sub-section exams">
+        <section class="icon">
+            <img src="document.png" />
+        </section>
+        <section class="content">
+            <h3>Exams</h3>
+            <ul>
+                <li>[Exam 1] <a href="#">where to take</a></li>
+                <li>[Exam 2] <a href="#">where to take</a></li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="sub-section medical">
+        <section class="icon">
+            <img src="medical.png" />
+        </section>
+        <section class="content">
+            <h3>Medical</h3>
+            <p>
+                All seafarers are required to have a medical certificate.
+                <a href="#">Find eligable medical examiners.</a>
+            </p>
+        </section>
+    </section>
+
+    <section class="sub-section qualifying_service">
+        <section class="icon">
+            <img src="boat.png" />
+        </section>
+        <section class="content">
+            <h3>Qualifying Service</h3>
+            <p>
+                The qualifying service represents the amount of experience
+                needed for the chosen certificate. For <b>@CertificateName</b>,
+                you require:
+            </p>
+            <ul>
+                <li>x years of service.</li>
+                <li><a href="#">"Statement of qualifying service"</a></li>
+            </ul>
+        </section>
+    </section>
+
+    <nav class="page-actions">
+        <button class="button button-back" @onclick="() => UnselectCertificate()">Back</button>
+        <button class="button button-print" onclick="alert('There\'s a special place for people who kill trees you know');">
+            Print this page
+        </button>
+        <button class="button button-email" onclick="alert('A sensible choice! Our forest friends thank you for your continued service');">
+            Email this page
+        </button>
+    </nav>
+}
+else
+{
+
+    <h1>Select a certificate</h1>
+
     <p>
-        All seafarer certifications require a CDN.
-        <a href="#">How to obtain CDN</a>
+        Please pick an eligible certificate based on the information you have provided.
     </p>
-</section>
 
-<section class="sub-section education_and_training">
-    <h3>Education and Training</h3>
-    <ul>
-        <li>[text] <a href="#">How to obtain</a></li>
-        <li>[text] <a href="#">How to obtain</a></li>   
-    </ul>
-</section>
-
-<section class="sub-section exams">
-    <h3>Exams</h3>
-    <ul>
-        <li>[Exam 1] <a href="#">where to take</a></li>
-        <li>[Exam 2] <a href="#">where to take</a></li>
-    </ul>
-</section>
-
-<section class="sub-section medical">
-    <h3>Medical</h3>
-    <p>
-        All seafarers are required to have a medical certificate.
-        <a href="#">Find eligable medical examiners.</a>
-    </p>
-</section>
-
-<section class="sub-section qualifying_service">
-    <h3>Qualifying Service</h3>
-    <p>The qualifying service represents the amount of experience
-    needed for the chosen certificate. For <b>[name of certificate]</b>,
-    you require:</p>
-    <ul>
-        <li>x years of service.</li>
-        <li><a href="#">"Statement of qualifying service"</a></li>
-    </ul>
-</section>
-
-<nav>
-    <button class="button button-back">Back</button>
-    <button class="button button-print">Print this page</button>
-    <button class="button button-email">Email this page</button>
-</nav>
+    <select bind="@SearchTerm" @onchange="DoThis">
+        @foreach (var certificate in certificates)
+        {
+            <option value=@certificate>@certificate</option>
+        }
+    </select>
+}
 
 @code {
+    private string CertificateName;
+    private bool selectedCertificate = false;
+    private string searchTerm;
+    public string SearchTerm
+    {
+        get { return searchTerm; }
+        set { searchTerm = value; }
+    }
 
+    List<string> certificates = new List<string>()
+    {
+        "Select a certificate",
+        "First-Class Engineer Motor Ship",
+        "First-Class Engineer Steamship",
+        "First Mate Long Run Ferry"
+    };
+
+    private void UnselectCertificate()
+    {
+        selectedCertificate = false;
+    }
+
+    private void DoThis(ChangeEventArgs e)
+    {
+        CertificateName = e.Value.ToString();
+        selectedCertificate = true;
+    }
 }

@@ -1,23 +1,90 @@
 ﻿/*
     CERTIFICATE PAGE
 */
-.page-title {
-    font-weight: bold;
-    border-bottom: 5px solid darkred; 
+.Home-Section {
+    padding:200px 0px;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    background: url('../homepage-boat.png');
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.sub-section h3 {
+    .Home-Section h1 {
+        width: 50%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 2.8em;
+        color: #26384A;
+    }
+
+.page-title {
     font-weight: bold;
-    font-size: 1.4em;
-    color: rgb(0,78,102);
+    color: #26384A;
+    border-bottom: 5px solid darkred;
+}
+
+.sub-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.sub-section .icon img {
+    max-height:60px;
+    margin: 0px 10px;
+}
+
+.sub-section ul {
+    padding: 0px 25px;
+}
+
+    .sub-section h3 {
+        font-weight: bold;
+        font-size: 1.4em;
+        color: #475D7A;
+    }
+
+.page-actions {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+.quiz-anwser-container {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+.page-actions.center {
+    justify-content: center;
+}
+
+a.button {
+    background-color: #475D7A;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.6em;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 button.button {
-    height: 70px;
     font-size: 1.6em;
-    background-color: rgb(0,78,102);
-    padding: 0px 30px;
+    background-color: #475D7A;
+    padding: 15px 30px;
     color: white;
+}
+
+.quiz-anwser-container button.button-quiz {
+    width: 40%;
+    padding: 60px 60px;
 }
 /*
 <h1 class="page-title" > Requirements for [cert.name]</h1 >
