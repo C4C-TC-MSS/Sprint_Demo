@@ -82,9 +82,14 @@ button.button {
     color: white;
 }
 
-.quiz-anwser-container button.button-quiz {
+.quiz-anwser-container a.button-quiz {
     width: 40%;
+    color:white;
     padding: 60px 60px;
+}
+
+.quiz-anwser-container a.button-quiz:hover {
+    color: white;
 }
 
 select {
