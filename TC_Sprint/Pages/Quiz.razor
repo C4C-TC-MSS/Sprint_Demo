@@ -7,13 +7,14 @@
         <h1 class="page-title">@question.Ask</h1>
 
         <section class="quiz-anwser-container">
-            <!--onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"-->
             <a class="button button-quiz"
                onclick="document.getElementById('question-@(question.Number+1)').scrollIntoView({behavior:'smooth'})">
+                <i class="far fa-info-circle" title="Hello world!"></i>
                 @question.AnswerA
             </a>
             <a class="button button-quiz"
                onclick="document.getElementById('question-@(question.Number+1)').scrollIntoView({behavior:'smooth'})">
+                <i class="far fa-info-circle"></i>
                 @question.AnswerB
             </a>
         </section>
