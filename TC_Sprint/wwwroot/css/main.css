@@ -86,6 +86,10 @@ button.button {
     width: 40%;
     padding: 60px 60px;
 }
+
+select {
+    font-size:1.2em;
+}
 /*
 <h1 class="page-title" > Requirements for [cert.name]</h1 >
 
