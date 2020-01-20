@@ -1,0 +1,71 @@
+﻿/*
+    CERTIFICATE PAGE
+*/
+.page-title {
+    font-weight: bold;
+    border-bottom: 5px solid darkred; 
+}
+
+.sub-section h3 {
+    font-weight: bold;
+    font-size: 1.4em;
+    color: rgb(0,78,102);
+}
+
+button.button {
+    height: 70px;
+    font-size: 1.6em;
+    background-color: rgb(0,78,102);
+    padding: 0px 30px;
+    color: white;
+}
+/*
+<h1 class="page-title" > Requirements for [cert.name]</h1 >
+
+<h2 > Listed below are the complete requirements you need to obtain your chosen certificate: [cert.name]</h2 >
+
+<section class="sub-section cdn" >
+<h3 > Candidate Document Number (CDN)</h3 >
+<p >
+All seafarer certifications require a CDN.
+<a href="#" > How to obtain CDN</a >
+</p >
+</section >
+
+<section class="sub-section education_and_training" >
+<h3 > Education and Training</h3 >
+</section >
+
+<section class="exams" >
+<h3 > Exams</h3 >
+<ul >
+<li > [Exam 1] <a href="#" > How to obtain</a > </li >
+<li > [Exam 2] <a href="#" > How to obtain</a > </li >
+</ul >
+</section >
+
+<section class="sub-section medical" >
+<h3 > Medical</h3 >
+<p >
+All seafarers are required to have a medical certificate.
+<a href="#" > Find eligable medical examiners.</a >
+</p >
+</section >
+
+<section class="sub-section qualifying_service" >
+<h3 > Qualifying Service</h3 >
+<p > The qualifying service represents the amount of experience
+needed for the chosen certificate. For <b > [name of certificate]</b >,
+you require:</p >
+<ul >
+<li > x years of service.</li >
+<li > <a href="#" > "Statement of qualifying service"</a > </li >
+</ul >
+</section >
+
+<nav >
+<button class="button button-back" > Back</button >
+<button class="button button-print" > Print this page</button >
+<button class="button button-email" > Email this page</button >
+</nav >
+    */

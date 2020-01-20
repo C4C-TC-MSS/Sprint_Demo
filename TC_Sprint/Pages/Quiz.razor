@@ -1,0 +1,107 @@
+﻿@page "/quiz"
+
+<h3>Quiz Page</h3>
+
+<input type="hidden" value="@quizNumber" />
+<input type="hidden" value="@Quiz1Anwser" />
+<input type="hidden" value="@Quiz2Anwser" />
+<input type="hidden" value="@Quiz3Anwser" />
+
+<h1>@question</h1>
+
+@if (quizNumber < 3)
+{
+    <button class="btn btn-primary" @onclick="@(e => QuizAnwser(quizNumber, anwser1))">
+        @anwser1
+    </button>
+    <button class="btn btn-primary" @onclick="@(e => QuizAnwser(quizNumber, anwser2))">
+        @anwser2
+    </button>
+}
+else
+{
+    <p>@Quiz1Anwser</p>
+    <p>@Quiz2Anwser</p>
+    <p>@Quiz3Anwser</p>
+    <a class="btn btn-primary" href="certificate">View Certifications</a>
+}
+
+<buton class="btn btn-primary" @onclick="Back">Back</buton>
+
+@code {
+    private int quizNumber = 0;
+
+    private string question = "Do you want to...";
+    private string anwser1 = "Apply for a new certificate";
+    private string anwser2 = "Renew an existing certificate";
+
+    private string Quiz1Anwser = "";
+    private string Quiz2Anwser = "";
+    private string Quiz3Anwser = "";
+
+    private void Back()
+    {
+        if (quizNumber > 0)
+        {
+            quizNumber--;
+        }
+
+        if (quizNumber == 1)
+        {
+            Quiz2();
+        }
+        if (quizNumber == 0)
+        {
+            Quiz1();
+        }
+    }
+
+    private void QuizAnwser(int quizNumber, string anwser)
+    {
+        switch (quizNumber)
+        {
+            case 0:
+                Quiz1Anwser = anwser;
+                Quiz2();
+                break;
+            case 1:
+                Quiz2Anwser = anwser;
+                Quiz3();
+                break;
+            case 2:
+                Quiz3Anwser = anwser;
+                Summary();
+                break;
+        }
+    }
+
+    private void Quiz1()
+    {
+        question = "Do you want to...";
+        anwser1 = "Apply for a new certificate";
+        anwser2 = "Renew an existing certificate";
+        quizNumber = 0;
+    }
+
+    private void Quiz2()
+    {
+        question = "Will you be working...";
+        anwser1 = "Domestic";
+        anwser2 = "International";
+        quizNumber = 1;
+    }
+
+    private void Quiz3()
+    {
+        question = "Are you looking for information regarding...";
+        anwser1 = "Nautical";
+        anwser2 = "Engineering";
+        quizNumber = 2;
+    }
+
+    private void Summary()
+    {
+        question = "Summary";
+        quizNumber = 3;
+    }
+}

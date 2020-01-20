@@ -1,0 +1,63 @@
+﻿.gcweb-menu {
+    width:100%;
+    height:5px;
+    border-top: 3px solid #38414d;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+a {
+    text-decoration:underline;
+}
+
+@media screen and (min-width: 35.5em) {
+    body {
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (min-width: 21em) {
+    body {
+        font-size: 1.2em;
+    }
+}
+
+body {
+    margin: 0;
+    font-size: 1.05em;
+    font-family: Noto Sans,sans-serif;
+    line-height: 1.65;
+}
+
+.phase-banner {
+    background: #f4f4f4;
+    padding:20px;
+}
+
+.phase-banner span:first-of-type {
+    padding: 1px 5px;
+    border: 2px solid #000;
+    letter-spacing: 1px;
+    margin-right: 1.7em;
+}
+
+header .brand {
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+img.cn-flag {
+    height:auto;
+    max-height:40px;
+}
+
+footer {
+    height: 300px;
+}
+
+footer .landscape {
+    background: #26374a url('../landscape.png') no-repeat right bottom;
+}

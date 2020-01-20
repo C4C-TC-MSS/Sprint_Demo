@@ -1,0 +1,40 @@
+﻿@page "/certificate_old"
+
+<!--
+<h3>Certificate Page</h3>
+
+<h1>@ss</h1>
+
+<select bind="@SearchTerm" @onchange="DoThis">
+    @foreach (var certificate in certificates)
+    {
+        <option value=@certificate>@certificate</option>
+    }
+</select>
+-->
+
+@code {
+    private string ss = "Nothing";
+
+    private string searchTerm;
+    public string SearchTerm
+    {
+        get { return searchTerm; }
+        set { searchTerm = value; CertificateSelected(); }
+    }
+
+    List<string> certificates = new List<string>()
+    {
+        "Test1","Test2","Test3"
+    };
+
+    private void DoThis(ChangeEventArgs e) {
+        ss = e.Value.ToString();
+    }
+
+    private void CertificateSelected()
+    {
+        ss = searchTerm;
+        // DO Nothing
+    }
+}
