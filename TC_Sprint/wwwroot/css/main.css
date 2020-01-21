@@ -82,10 +82,22 @@ button.button {
     color: white;
 }
 
+.question {
+    text-align: center;
+    border-radius: 25px;
+    background: lightgrey;
+    padding: 30px 40px;
+}
+
+    .question .question-ask {
+        color: #26384A;
+    }
+
 .quiz-anwser-container a.button-quiz {
     width: 40%;
-    color:white;
+    color: white;
     padding: 60px 60px;
+    border-radius: 25px;
 }
 
 .quiz-anwser-container a.button-quiz:hover {

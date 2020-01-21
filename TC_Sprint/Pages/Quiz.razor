@@ -4,29 +4,24 @@
 @foreach (var question in Questions)
 {
     <section class="question" id="question-@question.Number">
-        <h1 class="page-title">@question.Ask</h1>
+        <h1 class="question-ask">@question.Ask</h1>
 
         <section class="quiz-anwser-container">
             <a class="button button-quiz"
                onclick="document.getElementById('question-@(question.Number+1)').scrollIntoView({behavior:'smooth'})">
-                <i class="far fa-info-circle" title="Hello world!"></i>
+                <i class="far fa-info-circle" title="@question.AnswerAHint"></i>
                 @question.AnswerA
             </a>
             <a class="button button-quiz"
                onclick="document.getElementById('question-@(question.Number+1)').scrollIntoView({behavior:'smooth'})">
-                <i class="far fa-info-circle"></i>
+                <i class="far fa-info-circle" title="@question.AnswerBHint"></i>
                 @question.AnswerB
             </a>
         </section>
+
+        <p>Question @question.Number of @Questions.Count</p>
     </section>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <br />
     <br />
 }
@@ -43,6 +38,8 @@
         public string Ask { get; set; }
         public string AnswerA { get; set; }
         public string AnswerB { get; set; }
+        public string AnswerAHint { get; set; }
+        public string AnswerBHint { get; set; }
 
         public Question()
         {
@@ -56,21 +53,27 @@
             Number = 1,
             Ask = "Do you want to...",
             AnswerA = "Apply for a new certificate",
+            AnswerAHint = "If you are looking to apply for a new certification start here!",
             AnswerB = "Renew an existing certificate",
+            AnswerBHint = "If you are looking to renew an existing certification start here!",
         },
         new Question()
         {
             Number = 2,
             Ask = "Will you be working...",
             AnswerA = "Domestic",
+            AnswerAHint = "You are going to be working in Canadian waters",
             AnswerB = "International",
+            AnswerBHint = "You will be venturing out into internation waters",
         },
         new Question()
         {
             Number = 3,
             Ask = "Are you looking for information regarding...",
             AnswerA = "Nautical",
+            AnswerAHint = "You are more of an adventurer",
             AnswerB = "Engineering",
+            AnswerBHint = "You are looking to repair and build ships",
         },
     };
 }
