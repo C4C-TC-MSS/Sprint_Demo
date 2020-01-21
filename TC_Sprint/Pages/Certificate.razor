@@ -1,5 +1,6 @@
 ﻿@page "/certificate"
 
+@using TC_Sprint.Data.Certification
 
 @if (selectedCertificate)
 {
@@ -27,8 +28,10 @@
         <section class="content">
             <h3>Education and Training</h3>
             <ul>
-                <li>[text] <a href="#">How to obtain</a></li>
-                <li>[text] <a href="#">How to obtain</a></li>
+                @foreach (var education in SelectedCertification.EducationList)
+                {
+                <li>@education.Name <a href="@education.ExternalLink">How to obtain</a></li>
+                }
             </ul>
         </section>
     </section>
@@ -40,8 +43,10 @@
         <section class="content">
             <h3>Exams</h3>
             <ul>
-                <li>[Exam 1] <a href="#">where to take</a></li>
-                <li>[Exam 2] <a href="#">where to take</a></li>
+                @foreach (var exam in SelectedCertification.Exams)
+                {
+                <li>@exam.Name <a href="@exam.ExternalLink">Where to take</a></li>
+                }
             </ul>
         </section>
     </section>
@@ -71,7 +76,7 @@
                 you require:
             </p>
             <ul>
-                <li>x years of service.</li>
+                <li>5 years of service.</li>
                 <li><a href="#">"Statement of qualifying service"</a></li>
             </ul>
         </section>
@@ -113,6 +118,7 @@ else
 
 @code {
     private string CertificateName;
+    private Certification SelectedCertification;
     private bool selectedCertificate = false;
     private string searchTerm;
     public string SearchTerm
@@ -129,6 +135,43 @@ else
         "First Mate Long Run Ferry"
     };
 
+    private Certification CreateCertificate()
+    {
+        Certification certification = new Certification();
+        Education education1 = new Education()
+        {
+            Name = "Diploma in Marine Eng.Technology",
+            ExternalLink = "https://www.bcit.ca/study/programs/2935dipma",
+        };
+
+        List<Exam> Exams = new List<Exam>();
+        string[] exams = new string[] {
+            "Ship management practices (examination code: PPSSIM2)",
+            "Applied Mechanics (examination code: 1APM)",
+            "Thermodynamics (examination code: 1H-H)",
+            "Electrotechnology (examination code: 1ELC)",
+            "Naval Architecture (examination code: 1NAR)",
+            "General engineering knowledge (examination code: 1EKG)",
+            "Engineering knowledge of motor vessels (examination code: 1EKM)",
+            "Engineering knowledge of steamships (examination code: 1EKS)",
+            "Oral examination (examination code: 1ORM or 1ORS)",
+        };
+        for (int i = 0; i < exams.Length; i++)
+        {
+            Exams.Add(new Exam()
+            {
+                Name = exams[i],
+                ExternalLink = "#",
+            });
+        }
+
+        certification.EducationList.Add(education1);
+        certification.Exams = Exams;
+        certification.Name = CertificateName;
+
+        return certification;
+    }
+
     private void UnselectCertificate()
     {
         selectedCertificate = false;
@@ -137,6 +180,7 @@ else
     private void DoThis(ChangeEventArgs e)
     {
         CertificateName = e.Value.ToString();
+        SelectedCertification = CreateCertificate();
         selectedCertificate = true;
     }
 }
