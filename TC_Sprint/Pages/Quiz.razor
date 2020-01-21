@@ -1,115 +1,79 @@
 ﻿@page "/quiz"
 
-<input type="hidden" value="@quizNumber" />
-<input type="hidden" value="@Quiz1Anwser" />
-<input type="hidden" value="@Quiz2Anwser" />
-<input type="hidden" value="@Quiz3Anwser" />
 
-<h1 class="page-title">@question</h1>
-
-@if (quizNumber < 3)
+@foreach (var question in Questions)
 {
-    <section class="quiz-anwser-container">
-        <button class="button button-quiz" @onclick="@(e => QuizAnwser(quizNumber, anwser1))">
-            @anwser1
-        </button>
-        <button class="button button-quiz" @onclick="@(e => QuizAnwser(quizNumber, anwser2))">
-            @anwser2
-        </button>
+    <section class="question" id="question-@question.Number">
+        <h1 class="question-ask">@question.Ask</h1>
+
+        <section class="quiz-anwser-container">
+            <a class="button button-quiz"
+               onclick="document.getElementById('question-@(question.Number+1)').scrollIntoView({behavior:'smooth'})">
+                <i class="far fa-info-circle" title="@question.AnswerAHint"></i>
+                @question.AnswerA
+            </a>
+            <a class="button button-quiz"
+               onclick="document.getElementById('question-@(question.Number+1)').scrollIntoView({behavior:'smooth'})">
+                <i class="far fa-info-circle" title="@question.AnswerBHint"></i>
+                @question.AnswerB
+            </a>
+        </section>
+
+        <p>Question @question.Number of @Questions.Count</p>
     </section>
-}
-else
-{
-    <p>@Quiz1Anwser</p>
-    <p>@Quiz2Anwser</p>
-    <p>@Quiz3Anwser</p>
-    <nav class="page-actions">
-        <a class="button" style="color:white;" @onclick="Back">Back</a>
-        <a class="button" href="certificate">View Certifications</a>
-    </nav>
+
+    <br />
+    <br />
 }
 
-@if (quizNumber > 0 && quizNumber < 3)
-{
-    <br />
-    <br />
-    <a class="button" style="color:white;" @onclick="Back">Back</a>
-}
+<nav class="page-actions">
+    <a class="button" href="info">Back</a>
+    <a class="button" href="certificate">View Certifications</a>
+</nav>
 
 @code {
-    private int quizNumber = 0;
-
-    private string question = "Do you want to...";
-    private string anwser1 = "Apply for a new certificate";
-    private string anwser2 = "Renew an existing certificate";
-
-    private string Quiz1Anwser = "";
-    private string Quiz2Anwser = "";
-    private string Quiz3Anwser = "";
-
-    private void Back()
+    private class Question
     {
-        if (quizNumber > 0)
-        {
-            quizNumber--;
-        }
+        public int Number { get; set; }
+        public string Ask { get; set; }
+        public string AnswerA { get; set; }
+        public string AnswerB { get; set; }
+        public string AnswerAHint { get; set; }
+        public string AnswerBHint { get; set; }
 
-        if (quizNumber == 1)
+        public Question()
         {
-            Quiz2();
-        }
-        if (quizNumber == 0)
-        {
-            Quiz1();
+
         }
     }
 
-    private void QuizAnwser(int quizNumber, string anwser)
-    {
-        switch (quizNumber)
+    private List<Question> Questions = new List<Question>() {
+        new Question()
         {
-            case 0:
-                Quiz1Anwser = anwser;
-                Quiz2();
-                break;
-            case 1:
-                Quiz2Anwser = anwser;
-                Quiz3();
-                break;
-            case 2:
-                Quiz3Anwser = anwser;
-                Summary();
-                break;
-        }
-    }
-
-    private void Quiz1()
-    {
-        question = "Do you want to...";
-        anwser1 = "Apply for a new certificate";
-        anwser2 = "Renew an existing certificate";
-        quizNumber = 0;
-    }
-
-    private void Quiz2()
-    {
-        question = "Will you be working...";
-        anwser1 = "Domestic";
-        anwser2 = "International";
-        quizNumber = 1;
-    }
-
-    private void Quiz3()
-    {
-        question = "Are you looking for information regarding...";
-        anwser1 = "Nautical";
-        anwser2 = "Engineering";
-        quizNumber = 2;
-    }
-
-    private void Summary()
-    {
-        question = "Summary";
-        quizNumber = 3;
-    }
+            Number = 1,
+            Ask = "I want to...",
+            AnswerA = "Apply for a new certificate",
+            AnswerAHint = "Choose this if you do not currently have certification to work on a commercial vessel",
+            AnswerB = "Renew an existing certificate",
+            AnswerBHint = "Choose this if you have previously had certification to work on a commercial vessel",
+        },
+        new Question()
+        {
+            Number = 2,
+            Ask = "I want information regarding...",
+            AnswerA = "Domestic",
+            AnswerAHint = "Choose this if you need a certification to work in domestic waters",
+            AnswerB = "International",
+            AnswerBHint = "Chose this if you need a certification to work in international waters",
+        },
+        new Question()
+        {
+            Number = 3,
+            Ask = "I want information regarding...",
+            AnswerA = "Nautical",
+            AnswerAHint = "Choose this if your work involves navigation, cargo operation, or ship maintenance",
+            AnswerB = "Engineering",
+            AnswerBHint = "Choose this if your work involves operation and maintenance of ship machinery",
+        },
+    };
 }

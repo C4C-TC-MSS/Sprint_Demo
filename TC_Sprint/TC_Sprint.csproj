@@ -3,11 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
+ 
   <ItemGroup>
-    <Folder Include="Pages_Old\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Pages\Infopage.razor" />
+    <Folder Include="wwwroot\css\webfonts\" />
   </ItemGroup>
 </Project>

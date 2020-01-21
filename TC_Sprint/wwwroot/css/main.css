@@ -4,16 +4,17 @@
 .Home-Section {
     padding-top:100px;
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content: center;
     background: url('../homepage-boat.png');
     background-size:100%;
+    text-align:center;
     background-repeat: no-repeat;
     background-position: center;
 }
 
     .Home-Section h1 {
-        width: 50%;
+        width: 100%;
         text-align: center;
         font-weight: bold;
         font-size: 2.8em;
@@ -82,57 +83,28 @@ button.button {
     color: white;
 }
 
-.quiz-anwser-container button.button-quiz {
-    width: 40%;
-    padding: 60px 60px;
+.question {
+    text-align: center;
+    border-radius: 25px;
+    background: lightgrey;
+    padding: 30px 40px;
 }
-/*
-<h1 class="page-title" > Requirements for [cert.name]</h1 >
 
-<h2 > Listed below are the complete requirements you need to obtain your chosen certificate: [cert.name]</h2 >
+    .question .question-ask {
+        color: #26384A;
+    }
 
-<section class="sub-section cdn" >
-<h3 > Candidate Document Number (CDN)</h3 >
-<p >
-All seafarer certifications require a CDN.
-<a href="#" > How to obtain CDN</a >
-</p >
-</section >
+.quiz-anwser-container a.button-quiz {
+    width: 40%;
+    color: white;
+    padding: 60px 60px;
+    border-radius: 25px;
+}
 
-<section class="sub-section education_and_training" >
-<h3 > Education and Training</h3 >
-</section >
+.quiz-anwser-container a.button-quiz:hover {
+    color: white;
+}
 
-<section class="exams" >
-<h3 > Exams</h3 >
-<ul >
-<li > [Exam 1] <a href="#" > How to obtain</a > </li >
-<li > [Exam 2] <a href="#" > How to obtain</a > </li >
-</ul >
-</section >
-
-<section class="sub-section medical" >
-<h3 > Medical</h3 >
-<p >
-All seafarers are required to have a medical certificate.
-<a href="#" > Find eligable medical examiners.</a >
-</p >
-</section >
-
-<section class="sub-section qualifying_service" >
-<h3 > Qualifying Service</h3 >
-<p > The qualifying service represents the amount of experience
-needed for the chosen certificate. For <b > [name of certificate]</b >,
-you require:</p >
-<ul >
-<li > x years of service.</li >
-<li > <a href="#" > "Statement of qualifying service"</a > </li >
-</ul >
-</section >
-
-<nav >
-<button class="button button-back" > Back</button >
-<button class="button button-print" > Print this page</button >
-<button class="button button-email" > Email this page</button >
-</nav >
-    */
+select {
+    font-size:1.2em;
+}
