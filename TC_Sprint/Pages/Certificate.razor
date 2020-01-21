@@ -113,11 +113,12 @@ else
 
     <nav>
         <a class="button button-back" href="quiz">Back</a>
+        <button class="button" @onclick="SelectCertification">Next</button>
     </nav>
 }
 
 @code {
-    private string CertificateName;
+    private string CertificateName = null;
     private Certification SelectedCertification;
     private bool selectedCertificate = false;
     private string searchTerm;
@@ -175,12 +176,20 @@ else
     private void UnselectCertificate()
     {
         selectedCertificate = false;
+        CertificateName = null;
+    }
+
+    private void SelectCertification()
+    {
+        if (CertificateName != null)
+        {
+            selectedCertificate = true;
+        }
     }
 
     private void DoThis(ChangeEventArgs e)
     {
         CertificateName = e.Value.ToString();
         SelectedCertification = CreateCertificate();
-        selectedCertificate = true;
     }
 }
