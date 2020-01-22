@@ -1,28 +1,49 @@
 ﻿/*
+    ALPHA BANNER
+*/
+.phase-banner {
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+    .phase-banner span:first-of-type {
+        padding: 1px 5px;
+        border: 2px solid #000;
+        letter-spacing: 1px;
+        margin-right: 1.7em;
+    }
+
+/*
     CERTIFICATE PAGE
 */
 .Home-Section {
-    padding-top:100px;
-    display:flex;
-    flex-direction:column;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
     justify-content: center;
     background: url('../homepage-boat.png');
-    background-size:100%;
-    text-align:center;
+    background-size: 100%;
+    text-align: center;
     background-repeat: no-repeat;
     background-position: center;
 }
 
     .Home-Section h1 {
-        width: 100%;
+        width: 60%;
         text-align: center;
         font-weight: bold;
         font-size: 2.8em;
         color: #26384A;
+        border-bottom: 0;
+    }
+
+    .Home-Section p {
+        font-weight: bold;
     }
 
 h2 {
-    font-size:1.6em;
+    font-size: 1.6em;
     color: #475D7A;
 }
 
@@ -37,14 +58,14 @@ h2 {
     flex-direction: row;
 }
 
-.sub-section .icon img {
-    max-height:60px;
-    margin: 0px 10px;
-}
+    .sub-section .icon img {
+        max-height: 60px;
+        margin: 0px 10px;
+    }
 
-.sub-section ul {
-    padding: 0px 25px;
-}
+    .sub-section ul {
+        padding: 0px 25px;
+    }
 
     .sub-section h3 {
         font-weight: bold;
@@ -53,14 +74,14 @@ h2 {
     }
 
 .page-actions {
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
 .quiz-anwser-container {
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -106,12 +127,12 @@ button.button {
     border-radius: 25px;
 }
 
-.quiz-anwser-container a.button-quiz:hover {
-    color: white;
-}
+    .quiz-anwser-container a.button-quiz:hover {
+        color: white;
+    }
 
 select {
-    font-size:1.2em;
+    font-size: 1.2em;
 }
 
 .bold {
