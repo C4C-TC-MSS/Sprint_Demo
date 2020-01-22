@@ -7,5 +7,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\css\webfonts\" />
     <Folder Include="Data\Certification\" />
+    <Folder Include="wwwroot\assets\" />
   </ItemGroup>
 </Project>
